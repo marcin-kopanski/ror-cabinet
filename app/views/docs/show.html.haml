@@ -1,6 +1,12 @@
-%h1= @doc.title
-%p= @doc.content
+.container
+  #doc_show
+    %h1.text-center= @doc.title
+    %hr
 
-= link_to "All Docs", docs_path
-= link_to "Fix Doc", edit_doc_path(@doc)
-= link_to "Trash it", doc_path(@doc), method: :delete, data: { confirm: "Are you sure?" }
+    = simple_format(@doc.content, class: "text-justify")
+
+    .row
+      .col-12.d-flex
+        = link_to "Back", docs_path, class: "btn btn-primary ml-auto mr-2"
+        = link_to "Edit", edit_doc_path(@doc), class: "btn btn-primary mr-2"
+        = link_to "Delete", doc_path(@doc), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary"
