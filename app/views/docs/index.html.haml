@@ -1,6 +1,15 @@
-- @docs.each do |doc|
-  %h2= link_to doc.title, doc
-  %p= time_ago_in_words(doc.created_at)
-  %p= truncate(doc.content, length: 50)
-
-= link_to "Create Doc", new_doc_path
+.container
+  - unless @docs.blank?
+    .card-columns.d-inline-block
+      - @docs.each do |doc|
+        %a{ href: (url_for [doc]) }
+          .card
+            .card-body
+              %p.h2= link_to doc.title, doc
+              %p= time_ago_in_words(doc.created_at)
+              %p= truncate(doc.content, length: 50)
+  - else
+    %h2 Create Doc!
+    %p Start Creating Documents and Organizing Your life!
+    .row.no-gutters.justify-content-center
+      %button= link_to "Create Doc", new_doc_path, class: "btn btn-primary col-md-2"
