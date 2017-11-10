@@ -1,4 +1,11 @@
 = simple_form_for @doc do |f|
   = f.input :title
   = f.input :content
-  = f.button :submit
+
+  .row
+    .col-12.d-flex
+      - if local_assigns[:with_cancel] && with_cancel
+        = link_to "Cancel", doc_path, class: "ml-auto btn btn-primary mr-2"
+        = f.button :submit, class: "btn btn-primary"
+      - else
+        = f.button :submit, class: "ml-auto btn btn-primary"

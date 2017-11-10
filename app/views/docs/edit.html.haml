@@ -1,5 +1,8 @@
-%h1 Edit Doc!
+.container
+  #doc_edit
+    %h1.text-center Edit Doc!
+    %hr
 
-= render 'form'
+    = render partial: 'form', locals: { with_cancel: true }
 
-= link_to "Cancel", doc_path
+    
