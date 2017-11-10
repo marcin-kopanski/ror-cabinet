@@ -40,3 +40,5 @@ gem 'jquery-rails'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'simple_form', '~> 3.5'
 gem 'devise', '~> 4.3'
+
+ruby "2.4.2"
